@@ -9,6 +9,15 @@ p {
   font-family: prompt, sans-serif;
 }
 
+select {
+  color: white;
+  font-family: prompt, sans-serif;
+  border: none;
+  background-color: #111;
+  margin-left: 70%;
+  font-size: 1.3rem;
+}
+
 .hidden {
   display: none;
 }
@@ -29,7 +38,17 @@ p {
   color: white;
 }
 
+.selection-bar > .row > h1:hover {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
+  .selector > h1 {
+    font-size: 1.5rem;
+    margin-left: 35%;
+    margin-right: 30%;
+  }
+
   .selector > .row {
     display: flex;
     justify-content: center;
@@ -38,77 +57,80 @@ p {
     margin-top: 2rem;
   }
 
-  .cyw {
-    display: none;
-  }
-
-  .selector {
-    background-color: #111;
-  }
-
-  .selector > h1 {
-    font-size: 1.5rem;
-    margin-left: 35%;
-    margin-right: 30%;
-  }
-
-  .column-middle {
-    display: none;
-  }
-
-  .column-right {
-    display: none;
-  }
-
-  .column {
-    display: flex;
-    flex-wrap: wrap;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5%;
-  }
-
-  .character {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: calc(100%/3);
-  }
-
-  .gun {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: white solid 2px;
-  }
-
-  .weapons {
-    margin-top: 2rem;
-  }
-
-  .character > img {
-    width: 80%;
-    height: 80%;
-    border: 3px white solid;
-  }
-
-  .gun > img {
-    width: 100%;
-    margin-left: 10%;
-    margin-right: 11%;
-    margin-top: 5%;
+  .gun-column {
+    margin-left: 4%;
+    margin-right: 4%;
   }
 }
 
+.selector {
+  background-color: #111;
+}
+
+.column-middle {
+  display: none;
+}
+
+.column-right {
+  display: none;
+}
+
+.column {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+}
+
+.character {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(100%/3);
+}
+
+.gun {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: white solid 2px;
+  padding-bottom: 3%;
+}
+
+.weapons {
+  margin-top: 2rem;
+}
+
+.character > img {
+  width: 80%;
+  height: 80%;
+  border: 3px white solid;
+}
+
+.gun > img {
+  width: 100%;
+  margin-left: 10%;
+  margin-right: 11%;
+  margin-top: 5%;
+  padding-left: 3%;
+}
+
+.weapons > .sheriff > img,
+.weapons > .classic > img,
+.weapons > .frenzy > img {
+  width: 60%;
+}
+
 @media screen and (min-width: 769px) {
-  .container {
+  .character-info {
     display: flex;
   }
 
-  .judge > img {
-    width: 60%;
-    margin-left: 25%;
+  .column-middle > img {
+    width: 150%;
+    margin-left: -20%;
   }
 
   .cyw {
@@ -123,6 +145,10 @@ p {
     font-size: 1rem;
   }
 
+  .content > div {
+    display: flex;
+  }
+
   .column {
     display: flex;
     flex-wrap: wrap;
@@ -133,18 +159,16 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 25%;
     margin-left: 3%;
-    margin-top: 3%;
+    margin-top: 20%;
+  }
+
+  .column-third {
+    width: 25%;
   }
 
   .column-middle {
     width: 40%;
-  }
-
-  .column-middle > img {
-    width: 150%;
-    margin-left: -20%;
   }
 
   .column-right {
@@ -167,11 +191,21 @@ p {
   .gun > img {
     width: 80%;
     margin-left: 15%;
-    padding-bottom: 5%;
+    padding-bottom: 7%;
   }
 
-  .content > h1 > img {
+  .content > div > img {
     width: 7%;
+    height: 7%;
+    margin-top: 10%;
+    margin-left: 3%;
+  }
+
+  .weapons > .sheriff > img,
+  .weapons > .classic > img,
+  .weapons > .frenzy > img {
+    width: 60%;
+    margin-left: 25%;
   }
 
   .character {

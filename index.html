@@ -16,79 +16,56 @@
   <header>
     <div class="selection-bar">
       <div class="row">
-        <h1> Agents </h1>
-        <h1> Weapons </h1>
+        <h1 id="agents"> Agents </h1>
+        <h1 id="weapons"> Weapons </h1>
       </div>
     </div>
   </header>
   <main>
-    <div class="container">
-      <div class="column-third hidden">
-        <div class="column-container">
-          <div class="selector">
-            <div class="row">
-              <h1 class=""> Agent Types </h1>
+    <div class="agentsView">
+      <div class="character-info">
+        <div class="column-third">
+          <div class="column-container">
+            <div class="selector">
+              <div class="row">
+                <h1> Agents </h1>
+              </div>
+              <select name="agents" id="agent">
+                <option value="all"> ALL ROLES </option>
+                <option value="controller"> CONTROLLER </option>
+                <option value="duelist"> DUELIST </option>
+                <option value="initiator"> INITIATOR </option>
+                <option value="sentiniel"> SENTINEL </option>
+              </select>
             </div>
-          </div>
-          <div class="column">
-            <div class="character">
-              <!--- IMG
-                p --->
+            <div class="column">
             </div>
           </div>
         </div>
-      </div>
-      <div class="column-middle hidden">
-        <!--- img goes here --->
-      </div>
-      <div class="column-right hidden">
-        <div class="content">
-          <!---  <h2>
-                  <h1> <img>
-                  <h2>
-                  <p> --->
+        <div class="column-middle">
+        </div>
+        <div class="column-right">
         </div>
       </div>
     </div>
-    <div class="weapons-container">
+    <div class="weaponsView hidden">
       <div class="selector">
         <h1 class="cyw"> Choose Your Weapon </h1>
-        <h1 class="wt"> Weapon Types </h1>
       </div>
+      <select name="guns" id="guns">
+        <option value="all-weapons"> All Weapons </option>
+        <option value="sidearms"> SIDEARMS </option>
+        <option value="smgs"> SMGS </option>
+        <option value="rifles"> RIFLES </option>
+        <option value="snipers"> SNIPERS </option>
+        <option value="heavies"> HEAVEIES </option>
+        <option value="melee"> MELLE </option>
+      </select>
       <div class="gun-column">
         <div class="weapons">
-          <div class="gun judge">
-            <p> Odin </p>
-            <img class="judge"
-              src="https://media.valorant-api.com/weapons/e336c6b8-418d-9340-d77f-7a9e4cfe0702/displayicon.png">
-          </div>
-          <div class="gun">
-            <p> Odin </p>
-            <img src="https://media.valorant-api.com/weapons/a03b24d3-4319-996d-0f8c-94bbfba1dfc7/displayicon.png">
-          </div>
-          <div class="gun">
-            <p> Odin </p>
-            <img src="https://media.valorant-api.com/weapons/9c82e19d-4575-0200-1a81-3eacf00cf872/displayicon.png">
-          </div>
-          <div class="gun">
-            <p> Odin </p>
-            <img src="https://media.valorant-api.com/weapons/63e6c2b6-4a8e-869c-3d4c-e38355226584/displayicon.png">
-          </div>
-          <div class="gun">
-            <p> Odin </p>
-            <img src="https://media.valorant-api.com/weapons/63e6c2b6-4a8e-869c-3d4c-e38355226584/displayicon.png">
-          </div>
-          <div class="gun">
-            <p> Odin </p>
-            <img src="https://media.valorant-api.com/weapons/63e6c2b6-4a8e-869c-3d4c-e38355226584/displayicon.png">
-          </div>
         </div>
       </div>
-      <div class="column-middle hidden">
-        <img src="https://media.valorant-api.com/agents/dade69b4-4f5a-8528-247b-219e5a1facd6/fullportrait.png">
-      </div>
     </div>
-    ​
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
