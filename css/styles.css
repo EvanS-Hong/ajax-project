@@ -29,6 +29,10 @@ p {
   color: white;
 }
 
+.selection-bar > .row > h1:hover {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
   .selector > .row {
     display: flex;

@@ -95,3 +95,18 @@ xhr2.addEventListener('load', function () {
   }
 });
 xhr2.send();
+
+var selector = document.querySelector('.selection-bar');
+function viewSwap(event) {
+  var agentView = document.querySelector('.agentsView');
+  var weaponView = document.querySelector('.weaponsView');
+  if (event.target.getAttribute('id') === 'agents') {
+    agentView.classList.remove('hidden');
+    weaponView.classList.add('hidden');
+  } else if (event.target.getAttribute('id') === 'weapons') {
+    agentView.classList.add('hidden');
+    weaponView.classList.remove('hidden');
+  }
+
+}
+selector.addEventListener('click', viewSwap);
