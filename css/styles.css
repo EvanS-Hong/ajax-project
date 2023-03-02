@@ -42,12 +42,31 @@ select {
   font-size: 1rem;
 }
 
+.gun-info > h1 {
+  font-size: 2.2rem;
+  margin-left: 6.6%;
+  margin-bottom: 2%;
+  margin-top: 5.3%;
+  font-weight: 100;
+}
+
+.gun-info > p {
+  margin-left: 3%;
+}
+
 .selection-bar > .row > h1 {
   color: white;
 }
 
 .selection-bar > .row > h1:hover {
   cursor: pointer;
+}
+
+.gun-info {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
 
 @media screen and (max-width: 768px) {
@@ -65,6 +84,10 @@ select {
     position: fixed;
     right: 8%;
     cursor: pointer;
+  }
+
+  .gun-info > p {
+    font-size: 1.4rem;
   }
 
   .row > p {
@@ -173,6 +196,7 @@ select {
   .gun {
     border: white solid 2px;
     padding-bottom: 3%;
+    position: relative;
   }
 
   .weapons {
@@ -324,6 +348,7 @@ select {
 
   .gun {
     border: white 2px solid;
+    position: relative;
   }
 
   .gun > img {
