@@ -96,9 +96,6 @@ select {
   }
 
   .gun {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     border: white solid 2px;
     padding-bottom: 3%;
   }
@@ -113,10 +110,13 @@ select {
     border: 3px white solid;
   }
 
+  .gun > p {
+    font-size: 2rem;
+    margin-left: 7%;
+  }
+
   .gun > img {
     width: 100%;
-    margin-left: 10%;
-    margin-right: 11%;
     margin-top: 5%;
     padding-left: 3%;
   }
@@ -125,6 +125,7 @@ select {
   .weapons > .classic > img,
   .weapons > .frenzy > img {
     width: 60%;
+    margin-left: 20%;
   }
 }
 
