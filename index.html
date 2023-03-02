@@ -20,7 +20,7 @@
     </div>
   </header>
   <main>
-    <div class="agentsView hidden">
+    <div class="agentsView">
       <div class="character-info">
         <div class="column-third">
           <div class="column-container">
@@ -29,6 +29,13 @@
                 <h1> Agents </h1>
               </div>
             </div>
+            <select class="agents" name="agents" id="agent">
+              <option value="all"> ALL ROLES </option>
+              <option value="controller"> CONTROLLER </option>
+              <option value="duelist"> DUELIST </option>
+              <option value="initiator"> INITIATOR </option>
+              <option value="sentinel"> SENTINEL </option>
+            </select>
             <div class="column">
             </div>
           </div>
@@ -39,11 +46,19 @@
         </div>
       </div>
     </div>
-    <div class="weaponsView">
+    <div class="weaponsView hidden">
       <div class="selector">
-        <h1 class="cyw"> Choose Your Weapon </h1>
-        <h1 class="wt"> Weapon Types </h1>
+        <h1> Choose Your Weapon </h1>
       </div>
+      <select name="guns" id="guns">
+        <option value="all"> All Weapons </option>
+        <option value="EEquippableCategory::Sidearm"> SIDEARMS </option>
+        <option value="EEquippableCategory::SMG"> SMGS </option>
+        <option value="EEquippableCategory::Rifle"> RIFLES </option>
+        <option value="EEquippableCategory::Sniper"> SNIPERS </option>
+        <option value="EEquippableCategory::Heavy"> HEAVEIES </option>
+        <option value="EEquippableCategory::Melee"> MELEE </option>
+      </select>
       <div class="gun-column">
         <div class="weapons">
         </div>
@@ -53,5 +68,4 @@
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
-
 </html>

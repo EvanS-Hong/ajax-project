@@ -12,8 +12,11 @@ xhr.addEventListener('load', function () {
     var div = document.createElement('div');
     div.className = 'character';
 
+    div.classList.add(xhr.response.data[i].role.displayName.toLowerCase());
+
     var img1 = document.createElement('img');
     img1.src = xhr.response.data[i].displayIcon;
+    img1.alt = xhr.response.data[i].displayName.toLowerCase();
 
     var text = document.createElement('p');
     text.textContent = xhr.response.data[i].displayName;
@@ -24,6 +27,7 @@ xhr.addEventListener('load', function () {
 
     var img2 = document.createElement('img');
     img2.src = xhr.response.data[i].fullPortraitV2;
+    img2.alt = xhr.response.data[i].displayName.toLowerCase();
     if (i !== 0) {
       img2.className = 'hidden';
     }
@@ -47,6 +51,7 @@ xhr.addEventListener('load', function () {
 
     var img3 = document.createElement('img');
     img3.src = xhr.response.data[i].role.displayIcon;
+    img3.alt = xhr.response.data[i].role.displayName.toLowerCase();
 
     var text3 = document.createElement('h2');
     text3.textContent = '// BIOGRAPHY';
@@ -75,12 +80,17 @@ xhr2.addEventListener('load', function () {
     var div = document.createElement('div');
     if (xhr2.response.data[i].displayName === 'Sheriff') {
       div.className = 'gun sheriff';
+      div.classList.add(xhr2.response.data[i].category);
     } else if (xhr2.response.data[i].displayName === 'Classic') {
       div.className = 'gun classic';
+      div.classList.add(xhr2.response.data[i].category);
     } else if (xhr2.response.data[i].displayName === 'Frenzy') {
       div.className = 'gun frenzy';
+      div.classList.add(xhr2.response.data[i].category);
     } else {
       div.className = 'gun';
+      div.classList.add(xhr2.response.data[i].category);
+
     }
 
     var p = document.createElement('p');
@@ -88,6 +98,7 @@ xhr2.addEventListener('load', function () {
 
     var img = document.createElement('img');
     img.src = xhr2.response.data[i].displayIcon;
+    img.alt = xhr2.response.data[i].displayName;
 
     weap.appendChild(div);
     div.appendChild(p);
@@ -110,3 +121,35 @@ function viewSwap(event) {
 
 }
 selector.addEventListener('click', viewSwap);
+
+var pickGuns = document.getElementById('guns');
+var pickAgents = document.querySelector('.agents');
+
+function gunSwap(event) {
+  var gunList = document.querySelectorAll('.gun');
+  for (var i = 0; i < gunList.length; i++) {
+    if (gunList[i].classList.contains(event.target.value)) {
+      gunList[i].classList.remove('hidden');
+    } else if (event.target.value === 'all') {
+      gunList[i].classList.remove('hidden');
+    } else {
+      gunList[i].classList.add('hidden');
+    }
+  }
+}
+
+function agentSwap(event) {
+  var agentList = document.querySelectorAll('.character');
+  for (var i = 0; i < agentList.length; i++) {
+    if (agentList[i].classList.contains(event.target.value)) {
+      agentList[i].classList.remove('hidden');
+    } else if (event.target.value === 'all') {
+      agentList[i].classList.remove('hidden');
+    } else {
+      agentList[i].classList.add('hidden');
+    }
+  }
+}
+
+pickGuns.addEventListener('change', gunSwap);
+pickAgents.addEventListener('change', agentSwap);
