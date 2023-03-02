@@ -8,7 +8,6 @@ xhr.open('GET', 'https://valorant-api.com/v1/agents?isPlayableCharacter=true');
 xhr.responseType = 'json';
 
 xhr.addEventListener('load', function () {
-  // console.log(xhr.response.data);
   for (var i = 0; i < xhr.response.data.length; i++) {
     var div = document.createElement('div');
     div.className = 'character';
@@ -76,7 +75,6 @@ xhr2.open('GET', 'https://valorant-api.com/v1/weapons');
 xhr2.responseType = 'json';
 
 xhr2.addEventListener('load', function () {
-  // console.log(xhr2.response.data);
   for (var i = 0; i < xhr2.response.data.length; i++) {
     var div = document.createElement('div');
     if (xhr2.response.data[i].displayName === 'Sheriff') {
