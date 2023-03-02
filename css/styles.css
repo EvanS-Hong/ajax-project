@@ -42,7 +42,7 @@ select {
   cursor: pointer;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 919px) {
   .selector > h1 {
     font-size: 1.5rem;
     margin-left: 35%;
@@ -56,7 +56,6 @@ select {
   .selector > .row {
     display: flex;
     justify-content: center;
-    font-family: prompt, sans-serif;
     background-color: #111;
     margin-top: 2rem;
   }
@@ -129,7 +128,7 @@ select {
   }
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 920px) {
   .character-info {
     display: flex;
   }
@@ -140,8 +139,9 @@ select {
   }
 
   .column-middle > img {
-    width: 150%;
-    margin-left: -20%;
+    width: 180%;
+    margin-left: -33%;
+    margin-top: 10%;
   }
 
   .selector > h1 {
@@ -175,7 +175,8 @@ select {
   }
 
   .column-middle {
-    width: 40%;
+    width: 45%;
+    overflow: hidden;
   }
 
   .column-right {
@@ -223,14 +224,11 @@ select {
   .character {
     width: 30%;
     height: 30%;
+    margin-right: 3.3%;
   }
 
   p {
     font-size: 1.2rem;
-  }
-
-  .character > p {
-    margin-left: 30%;
   }
 
   .gun > p {
