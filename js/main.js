@@ -118,15 +118,33 @@ function viewSwap(event) {
 }
 selector.addEventListener('click', viewSwap);
 
-var pickGuns = (document.getElementById('guns'));
-var pickAgents = (document.getElementById('agent'));
+var pickGuns = document.getElementById('guns');
+var pickAgents = document.querySelector('.agents');
 
 function gunSwap(event) {
-
+  var gunList = document.querySelectorAll('.gun');
+  for (var i = 0; i < gunList.length; i++) {
+    if (gunList[i].classList.contains(event.target.value)) {
+      gunList[i].classList.remove('hidden');
+    } else if (event.target.value === 'all') {
+      gunList[i].classList.remove('hidden');
+    } else {
+      gunList[i].classList.add('hidden');
+    }
+  }
 }
 
 function agentSwap(event) {
-
+  var agentList = document.querySelectorAll('.character');
+  for (var i = 0; i < agentList.length; i++) {
+    if (agentList[i].classList.contains(event.target.value)) {
+      agentList[i].classList.remove('hidden');
+    } else if (event.target.value === 'all') {
+      agentList[i].classList.remove('hidden');
+    } else {
+      agentList[i].classList.add('hidden');
+    }
+  }
 }
 
 pickGuns.addEventListener('change', gunSwap);

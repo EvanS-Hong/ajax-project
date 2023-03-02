@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +10,6 @@
   <link rel="stylesheet" href="css/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
 </head>
-
 <body>
   <header>
     <div class="selection-bar">
@@ -30,12 +28,12 @@
               <div class="row">
                 <h1> Agents </h1>
               </div>
-              <select name="agents" id="agent">
+              <select class="agents" name="agents" id="agent">
                 <option value="all"> ALL ROLES </option>
                 <option value="controller"> CONTROLLER </option>
                 <option value="duelist"> DUELIST </option>
                 <option value="initiator"> INITIATOR </option>
-                <option value="sentiniel"> SENTINEL </option>
+                <option value="sentinel"> SENTINEL </option>
               </select>
             </div>
             <div class="column">
@@ -50,16 +48,16 @@
     </div>
     <div class="weaponsView hidden">
       <div class="selector">
-        <h1 class="cyw"> Choose Your Weapon </h1>
+        <h1> Choose Your Weapon </h1>
       </div>
       <select name="guns" id="guns">
-        <option value="all-weapons"> All Weapons </option>
-        <option value="sidearms"> SIDEARMS </option>
-        <option value="smgs"> SMGS </option>
-        <option value="rifles"> RIFLES </option>
-        <option value="snipers"> SNIPERS </option>
-        <option value="heavies"> HEAVEIES </option>
-        <option value="melee"> MELLE </option>
+        <option value="all"> All Weapons </option>
+        <option value="EEquippableCategory::Sidearm"> SIDEARMS </option>
+        <option value="EEquippableCategory::SMG"> SMGS </option>
+        <option value="EEquippableCategory::Rifle"> RIFLES </option>
+        <option value="EEquippableCategory::Sniper"> SNIPERS </option>
+        <option value="EEquippableCategory::Heavy"> HEAVEIES </option>
+        <option value="EEquippableCategory::Melee"> MELEE </option>
       </select>
       <div class="gun-column">
         <div class="weapons">
@@ -70,5 +68,4 @@
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
-
 </html>

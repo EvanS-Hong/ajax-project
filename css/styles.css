@@ -14,8 +14,8 @@ select {
   font-family: prompt, sans-serif;
   border: none;
   background-color: #111;
-  margin-left: 70%;
   font-size: 1.3rem;
+  cursor: pointer;
 }
 
 .hidden {
@@ -49,6 +49,10 @@ select {
     margin-right: 30%;
   }
 
+  .agents {
+    margin-left: 60%;
+  }
+
   .selector > .row {
     display: flex;
     justify-content: center;
@@ -61,66 +65,68 @@ select {
     margin-left: 4%;
     margin-right: 4%;
   }
-}
 
-.selector {
-  background-color: #111;
-}
+  .selector {
+    background-color: #111;
+  }
 
-.column-middle {
-  display: none;
-}
+  .column-middle {
+    display: none;
+  }
 
-.column-right {
-  display: none;
-}
+  .column-right {
+    display: none;
+  }
 
-.column {
-  display: flex;
-  flex-wrap: wrap;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5%;
-}
+  .column {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+  }
 
-.character {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: calc(100%/3);
-}
+  .character {
+    width: calc(100%/3);
+    height: 33%;
+  }
 
-.gun {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: white solid 2px;
-  padding-bottom: 3%;
-}
+  #guns {
+    margin-left: 70%;
+  }
 
-.weapons {
-  margin-top: 2rem;
-}
+  .gun {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: white solid 2px;
+    padding-bottom: 3%;
+  }
 
-.character > img {
-  width: 80%;
-  height: 80%;
-  border: 3px white solid;
-}
+  .weapons {
+    margin-top: 2rem;
+  }
 
-.gun > img {
-  width: 100%;
-  margin-left: 10%;
-  margin-right: 11%;
-  margin-top: 5%;
-  padding-left: 3%;
-}
+  .character > img {
+    width: 80%;
+    height: 80%;
+    border: 3px white solid;
+  }
 
-.weapons > .sheriff > img,
-.weapons > .classic > img,
-.weapons > .frenzy > img {
-  width: 60%;
+  .gun > img {
+    width: 100%;
+    margin-left: 10%;
+    margin-right: 11%;
+    margin-top: 5%;
+    padding-left: 3%;
+  }
+
+  .weapons > .sheriff > img,
+  .weapons > .classic > img,
+  .weapons > .frenzy > img {
+    width: 60%;
+  }
 }
 
 @media screen and (min-width: 769px) {
@@ -128,17 +134,18 @@ select {
     display: flex;
   }
 
+  .agents {
+    margin-left: 10%;
+    margin-bottom: 10%;
+  }
+
   .column-middle > img {
     width: 150%;
     margin-left: -20%;
   }
 
-  .cyw {
+  .selector > h1 {
     margin-left: 20%;
-  }
-
-  .wt {
-    margin-left: 70%;
   }
 
   .selector > .row > h1 {
@@ -184,6 +191,11 @@ select {
     border: white 2px solid;
   }
 
+  #guns {
+    margin-bottom: 2%;
+    margin-left: 70%;
+  }
+
   .gun {
     border: white 2px solid;
   }
@@ -209,14 +221,16 @@ select {
   }
 
   .character {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 30%;
+    height: 30%;
   }
 
   p {
     font-size: 1.2rem;
+  }
+
+  .character > p {
+    margin-left: 30%;
   }
 
   .gun > p {
