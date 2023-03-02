@@ -42,7 +42,7 @@ select {
   cursor: pointer;
 }
 
-@media screen and (max-width: 919px) {
+@media screen and (max-width: 768px) {
   .selector > h1 {
     font-size: 1.5rem;
     margin-left: 35%;
@@ -129,7 +129,13 @@ select {
   }
 }
 
-@media screen and (min-width: 920px) {
+@media screen and (max-width: 1190px) {
+  .character > p {
+    font-size: 90%;
+  }
+}
+
+@media screen and (min-width: 769px) {
   .character-info {
     display: flex;
   }

@@ -16,6 +16,7 @@ xhr.addEventListener('load', function () {
 
     var img1 = document.createElement('img');
     img1.src = xhr.response.data[i].displayIcon;
+    img1.alt = xhr.response.data[i].displayName.toLowerCase();
 
     var text = document.createElement('p');
     text.textContent = xhr.response.data[i].displayName;
@@ -26,6 +27,7 @@ xhr.addEventListener('load', function () {
 
     var img2 = document.createElement('img');
     img2.src = xhr.response.data[i].fullPortraitV2;
+    img2.alt = xhr.response.data[i].displayName.toLowerCase();
     if (i !== 0) {
       img2.className = 'hidden';
     }
@@ -49,6 +51,7 @@ xhr.addEventListener('load', function () {
 
     var img3 = document.createElement('img');
     img3.src = xhr.response.data[i].role.displayIcon;
+    img3.alt = xhr.response.data[i].role.displayName.toLowerCase();
 
     var text3 = document.createElement('h2');
     text3.textContent = '// BIOGRAPHY';
@@ -95,6 +98,7 @@ xhr2.addEventListener('load', function () {
 
     var img = document.createElement('img');
     img.src = xhr2.response.data[i].displayIcon;
+    img.alt = xhr2.response.data[i].displayName;
 
     weap.appendChild(div);
     div.appendChild(p);
