@@ -1,4 +1,4 @@
-var char = document.querySelector('.column');
+var char = document.querySelector('.character-column');
 var charImg = document.querySelector('.column-middle');
 var desc = document.querySelector('.column-right');
 var weap = document.querySelector('.weapons');
