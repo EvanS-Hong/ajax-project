@@ -11,6 +11,7 @@ xhr.addEventListener('load', function () {
   for (var i = 0; i < xhr.response.data.length; i++) {
     var div = document.createElement('div');
     div.className = 'character';
+
     div.classList.add(xhr.response.data[i].role.displayName.toLowerCase());
 
     var img1 = document.createElement('img');
@@ -89,6 +90,7 @@ xhr2.addEventListener('load', function () {
     } else {
       div.className = 'gun';
       div.classList.add(xhr2.response.data[i].category);
+
     }
 
     var p = document.createElement('p');

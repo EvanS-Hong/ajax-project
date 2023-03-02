@@ -140,9 +140,15 @@ select {
     display: flex;
   }
 
+
   .agents {
     margin-left: 10%;
     margin-bottom: 10%;
+
+  .column-middle > img {
+    width: 180%;
+    margin-left: -33%;
+    margin-top: 10%
   }
 
   .column-middle > img {
