@@ -83,6 +83,9 @@ select {
   .exit {
     position: fixed;
     right: 8%;
+  }
+
+  .exit > p {
     cursor: pointer;
   }
 

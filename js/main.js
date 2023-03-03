@@ -300,6 +300,9 @@ function agentInfoSwap(event) {
   var agentPortrait = document.querySelectorAll('.picture');
   var agentDetails = document.querySelectorAll('.content');
   var agentInfo = document.querySelectorAll('.info-window');
+  if (container.classList.contains('hidden')) {
+    container.classList.remove('hidden');
+  }
   if (event.target.tagName === 'IMG') {
     for (var i = 0; i < agents.length; i++) {
       if (agents[i].classList.contains(event.target.getAttribute('alt'))) {
@@ -318,11 +321,12 @@ function agentInfoSwap(event) {
 char.addEventListener('click', agentInfoSwap);
 
 function agentWindowClose() {
-  if (event.target.textContent === '\u2715') {
-    var parent = (event.target.parentNode);
-    var grandParent = parent.parentNode;
-    grandParent.parentNode.classList.add('hidden');
-
+  if (event.target.tagName === 'P') {
+    if (event.target.textContent === '\u2715') {
+      var parent = (event.target.parentNode);
+      var grandParent = parent.parentNode;
+      grandParent.parentNode.classList.add('hidden');
+    }
   }
 }
 
