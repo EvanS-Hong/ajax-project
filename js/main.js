@@ -2,6 +2,7 @@ var char = document.querySelector('.character-column');
 var charImg = document.querySelector('.column-middle');
 var desc = document.querySelector('.column-right');
 var weap = document.querySelector('.weapons');
+var container = document.querySelector('.container');
 
 var xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://valorant-api.com/v1/agents?isPlayableCharacter=true');
@@ -34,10 +35,11 @@ xhr.addEventListener('load', function () {
     charImg.appendChild(img2);
 
     var div2 = document.createElement('div');
+    div2.classList.add(xhr.response.data[i].displayName.toLowerCase());
     if (i === 0) {
-      div2.className = 'content';
+      div2.classList.add('content');
     } else {
-      div2.className = 'content hidden';
+      div2.classList.add('content', 'hidden');
     }
 
     var div3 = document.createElement('div');
@@ -87,6 +89,8 @@ xhr.addEventListener('load', function () {
 
     var div5 = document.createElement('div');
     div5.className = 'info-window';
+    div5.classList.add('hidden');
+    div5.classList.add(xhr.response.data[i].displayName.toLowerCase());
 
     var div6 = document.createElement('div');
     div6.className = 'main-window';
@@ -118,6 +122,42 @@ xhr.addEventListener('load', function () {
     var div14 = document.createElement('div');
     div14.className = 'ability-row';
 
+    var img9 = document.createElement('img');
+    img9.src = xhr.response.data[i].displayIcon;
+    img9.alt = xhr.response.data[i].displayName.toLowerCase();
+
+    var text6 = document.createElement('p');
+    text6.textContent = xhr.response.data[i].displayName;
+
+    var h2 = document.createElement('h1');
+    h2.textContent = xhr.response.data[i].role.displayName.toUpperCase();
+
+    var text7 = document.createElement('p');
+    text7.textContent = xhr.response.data[i].role.description;
+
+    var text8 = document.createElement('p');
+    text8.textContent = xhr.response.data[i].description;
+
+    var img10 = document.createElement('img');
+    img10.src = xhr.response.data[i].abilities[0].displayIcon;
+    img10.alt = xhr.response.data[i].abilities[0].displayName;
+    img10.className = 'ability';
+
+    var img11 = document.createElement('img');
+    img11.src = xhr.response.data[i].abilities[1].displayIcon;
+    img11.alt = xhr.response.data[i].abilities[1].displayName;
+    img11.className = 'ability';
+
+    var img12 = document.createElement('img');
+    img12.src = xhr.response.data[i].abilities[2].displayIcon;
+    img12.alt = xhr.response.data[i].abilities[2].displayName;
+    img12.className = 'ability';
+
+    var img13 = document.createElement('img');
+    img13.src = xhr.response.data[i].abilities[3].displayIcon;
+    img13.alt = xhr.response.data[i].abilities[3].displayName;
+    img13.className = 'ability';
+
     desc.appendChild(div2);
     div2.appendChild(text2);
     div2.appendChild(div3);
@@ -130,25 +170,25 @@ xhr.addEventListener('load', function () {
     div4.appendChild(img6);
     div4.appendChild(img7);
     div4.appendChild(img8);
-    document.body.appendChild(div5);
-    document.body.appendChild(div6);
+    container.appendChild(div5);
+    div5.appendChild(div6);
     div6.appendChild(div7);
     div6.appendChild(div8);
     div8.appendChild(div9);
-    div9.appendChild(img3);
+    div9.appendChild(img9);
     div8.appendChild(div10);
-    div10.appendChild(text);
-    div10.appendChild(h1);
-    div10.appendChild(text5);
+    div10.appendChild(text6);
+    div10.appendChild(h2);
+    div10.appendChild(text7);
     div6.appendChild(div11);
-    div11.appendChild(text4);
+    div11.appendChild(text8);
     div6.appendChild(div12);
     div12.appendChild(div13);
-    div13.appendChild(img5);
-    div13.appendChild(img6);
+    div13.appendChild(img10);
+    div13.appendChild(img11);
     div12.appendChild(div14);
-    div14.appendChild(img7);
-    div14.appendChild(img8);
+    div14.appendChild(img12);
+    div14.appendChild(img13);
   }
 });
 xhr.send();
@@ -160,20 +200,9 @@ xhr2.responseType = 'json';
 xhr2.addEventListener('load', function () {
   for (var i = 0; i < xhr2.response.data.length; i++) {
     var div = document.createElement('div');
-    if (xhr2.response.data[i].displayName === 'Sheriff') {
-      div.className = 'gun sheriff';
-      div.classList.add(xhr2.response.data[i].category);
-    } else if (xhr2.response.data[i].displayName === 'Classic') {
-      div.className = 'gun classic';
-      div.classList.add(xhr2.response.data[i].category);
-    } else if (xhr2.response.data[i].displayName === 'Frenzy') {
-      div.className = 'gun frenzy';
-      div.classList.add(xhr2.response.data[i].category);
-    } else {
-      div.className = 'gun';
-      div.classList.add(xhr2.response.data[i].category);
-
-    }
+    div.className = 'gun';
+    div.classList.add(xhr2.response.data[i].displayName.toLowerCase());
+    div.classList.add(xhr2.response.data[i].category);
 
     var p = document.createElement('p');
     p.textContent = xhr2.response.data[i].displayName;
@@ -182,9 +211,31 @@ xhr2.addEventListener('load', function () {
     img.src = xhr2.response.data[i].displayIcon;
     img.alt = xhr2.response.data[i].displayName;
 
+    var div2 = document.createElement('div');
+    div2.className = 'gun-info';
+    div2.classList.add(xhr2.response.data[i].displayName.toLowerCase());
+    div2.classList.add('hidden');
+
+    var h1 = document.createElement('h1');
+    h1.textContent = xhr2.response.data[i].displayName;
+
+    var p2 = document.createElement('p');
+    if (xhr2.response.data[i].shopData !== null) {
+      p2.textContent = 'Type: ' + xhr2.response.data[i].shopData.category;
+    } else {
+      p2.textContent = 'Type: ' + xhr2.response.data[i].displayName;
+    }
+
+    var p3 = document.createElement('p');
+    p3.textContent = 'Skin Count = ' + xhr2.response.data[i].skins.length + '.';
+
     weap.appendChild(div);
+    div.appendChild(div2);
     div.appendChild(p);
     div.appendChild(img);
+    div2.appendChild(h1);
+    div2.appendChild(p2);
+    div2.appendChild(p3);
   }
 });
 xhr2.send();

@@ -245,6 +245,10 @@ select {
     font-size: 1.2rem;
   }
 
+  .main-window {
+    display: none;
+  }
+
   .agents {
     margin-left: 10%;
     margin-bottom: 10%;
