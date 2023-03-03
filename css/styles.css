@@ -99,7 +99,7 @@ select {
   }
 
   .ability-row > img {
-    width: 25%;
+    width: 18%;
     margin-top: 5%;
     border: white solid 2px;
     cursor: pointer;
@@ -295,15 +295,26 @@ select {
     margin-bottom: 6%;
   }
 
+  .character > img {
+    width: 90%;
+    border: white 2px solid;
+  }
+
   .abilities {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
 
-  .abilities > img {
+  .gun > img {
+    width: 80%;
+    margin-left: 15%;
+    padding-bottom: 7%;
+  }
+
+  div.abilities > img {
     width: 20%;
-    border: white solid 2px;
+    border: white solid 1px;
   }
 
   .ability-description {
@@ -336,11 +347,6 @@ select {
     margin-top: 30%;
   }
 
-  .character > img {
-    width: 90%;
-    border: white 2px solid;
-  }
-
   #guns {
     margin-bottom: 2%;
     margin-left: 70%;
@@ -351,16 +357,10 @@ select {
     position: relative;
   }
 
-  .gun > img {
-    width: 80%;
-    margin-left: 15%;
-    padding-bottom: 7%;
-  }
-
-  .content > div > img {
+  div.role-wrapper > img {
     width: 7%;
     height: 7%;
-    margin-top: 10%;
+    margin-top: 8%;
     margin-left: 3%;
   }
 
