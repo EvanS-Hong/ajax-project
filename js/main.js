@@ -29,8 +29,9 @@ xhr.addEventListener('load', function () {
     var img2 = document.createElement('img');
     img2.src = xhr.response.data[i].fullPortraitV2;
     img2.alt = xhr.response.data[i].displayName.toLowerCase();
+    img2.classList.add('picture');
     if (i !== 0) {
-      img2.className = 'hidden';
+      img2.classList.add('hidden');
     }
     charImg.appendChild(img2);
 
@@ -98,8 +99,10 @@ xhr.addEventListener('load', function () {
     var div7 = document.createElement('div');
     div7.className = 'exit';
 
+    var x = '\u2715';
+
     var p1 = document.createElement('p');
-    p1.textContent = '&#10006;';
+    p1.textContent = x;
 
     var div8 = document.createElement('div');
     div8.className = 'row';
@@ -174,6 +177,7 @@ xhr.addEventListener('load', function () {
     div5.appendChild(div6);
     div6.appendChild(div7);
     div6.appendChild(div8);
+    div7.appendChild(p1);
     div8.appendChild(div9);
     div9.appendChild(img9);
     div8.appendChild(div10);
@@ -189,6 +193,7 @@ xhr.addEventListener('load', function () {
     div12.appendChild(div14);
     div14.appendChild(img12);
     div14.appendChild(img13);
+
   }
 });
 xhr.send();
@@ -203,13 +208,16 @@ xhr2.addEventListener('load', function () {
     div.className = 'gun';
     div.classList.add(xhr2.response.data[i].displayName.toLowerCase());
     div.classList.add(xhr2.response.data[i].category);
+    div.setAttribute('id', xhr2.response.data[i].displayName.toLowerCase());
 
     var p = document.createElement('p');
     p.textContent = xhr2.response.data[i].displayName;
+    p.className = xhr2.response.data[i].displayName.toLowerCase();
 
     var img = document.createElement('img');
     img.src = xhr2.response.data[i].displayIcon;
     img.alt = xhr2.response.data[i].displayName;
+    img.className = xhr2.response.data[i].displayName.toLowerCase();
 
     var div2 = document.createElement('div');
     div2.className = 'gun-info';
@@ -286,3 +294,50 @@ function agentSwap(event) {
 
 pickGuns.addEventListener('change', gunSwap);
 pickAgents.addEventListener('change', agentSwap);
+
+function agentInfoSwap(event) {
+  var agents = document.querySelectorAll('.character');
+  var agentPortrait = document.querySelectorAll('.picture');
+  var agentDetails = document.querySelectorAll('.content');
+  var agentInfo = document.querySelectorAll('.info-window');
+  if (event.target.tagName === 'IMG') {
+    for (var i = 0; i < agents.length; i++) {
+      if (agents[i].classList.contains(event.target.getAttribute('alt'))) {
+        agentPortrait[i].classList.remove('hidden');
+        agentDetails[i].classList.remove('hidden');
+        agentInfo[i].classList.remove('hidden');
+      } else {
+        agentPortrait[i].classList.add('hidden');
+        agentDetails[i].classList.add('hidden');
+        agentInfo[i].classList.add('hidden');
+      }
+    }
+  }
+}
+
+char.addEventListener('click', agentInfoSwap);
+
+function agentWindowClose() {
+  if (event.target.textContent === '\u2715') {
+    var parent = (event.target.parentNode);
+    var grandParent = parent.parentNode;
+    grandParent.parentNode.classList.add('hidden');
+
+  }
+}
+
+container.addEventListener('click', agentWindowClose);
+
+function weaponInfoViewSwap() {
+  var weapon = document.querySelectorAll('.gun');
+  var weaponList = document.querySelectorAll('.gun-info');
+  for (var i = 0; i < weapon.length; i++) {
+    if (weapon[i].classList.contains(event.target.className) || weapon[i].classList.contains(event.target.getAttribute('id'))) {
+      weaponList[i].classList.remove('hidden');
+    } else {
+      weaponList[i].classList.add('hidden');
+    }
+  }
+}
+
+weap.addEventListener('click', weaponInfoViewSwap);
