@@ -2,8 +2,16 @@ body {
   background-color: #0e1820;
 }
 
+.overlay {
+  width: 100%;
+  height: 200vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+}
+
 h1,
 h2,
+h4,
 p {
   color: white;
   font-family: prompt, sans-serif;
@@ -34,6 +42,18 @@ select {
   font-size: 1rem;
 }
 
+.gun-info > h1 {
+  font-size: 2.2rem;
+  margin-left: 6.6%;
+  margin-bottom: 2%;
+  margin-top: 5.3%;
+  font-weight: 100;
+}
+
+.gun-info > p {
+  margin-left: 3%;
+}
+
 .selection-bar > .row > h1 {
   color: white;
 }
@@ -42,7 +62,88 @@ select {
   cursor: pointer;
 }
 
+.gun-info {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
 @media screen and (max-width: 768px) {
+  .main-window {
+    border: white solid 2px;
+    position: fixed;
+    width: 90%;
+    height: 72%;
+    margin-left: 5%;
+    margin-right: 3%;
+    background-color: #111;
+  }
+
+  .exit {
+    position: fixed;
+    right: 8%;
+  }
+
+  .exit > p {
+    cursor: pointer;
+  }
+
+  .gun-info > p {
+    font-size: 1.4rem;
+  }
+
+  .row > p {
+    margin: 2% 3% 0%;
+  }
+
+  .row > .column {
+    width: 50%;
+  }
+
+  .ability-row > img {
+    width: 18%;
+    margin-top: 5%;
+    border: white solid 2px;
+    cursor: pointer;
+  }
+
+  .gun > p {
+    font-size: 2rem;
+    margin-left: 7%;
+  }
+
+  .ability-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .ability-description {
+    width: 70%;
+    height: 22%;
+    position: fixed;
+    bottom: 2%;
+    left: 15%;
+    background-color: #111;
+    border: white solid 2px;
+  }
+
+  .ability-description > .row {
+    display: flex;
+    justify-content: center;
+  }
+
+  .ability-description > .row > p {
+    font-size: 1.4rem;
+    margin-bottom: -3%;
+  }
+
+  .ability-description > .row > h4 {
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+
   .selector > h1 {
     font-size: 1.5rem;
     margin-left: 35%;
@@ -77,7 +178,7 @@ select {
     display: none;
   }
 
-  .column {
+  .character-column {
     display: flex;
     flex-wrap: wrap;
     width: 80%;
@@ -98,6 +199,7 @@ select {
   .gun {
     border: white solid 2px;
     padding-bottom: 3%;
+    position: relative;
   }
 
   .weapons {
@@ -108,11 +210,6 @@ select {
     width: 80%;
     height: 80%;
     border: 3px white solid;
-  }
-
-  .gun > p {
-    font-size: 2rem;
-    margin-left: 7%;
   }
 
   .gun > img {
@@ -127,6 +224,13 @@ select {
     width: 60%;
     margin-left: 20%;
   }
+
+  .row > .column > img {
+    width: 90%;
+    margin-top: 7%;
+    margin-left: 5%;
+    border: white solid 2px;
+  }
 }
 
 @media screen and (max-width: 1190px) {
@@ -140,15 +244,17 @@ select {
     display: flex;
   }
 
+  p {
+    font-size: 1.2rem;
+  }
+
+  .main-window {
+    display: none;
+  }
 
   .agents {
     margin-left: 10%;
     margin-bottom: 10%;
-
-  .column-middle > img {
-    width: 180%;
-    margin-left: -33%;
-    margin-top: 10%
   }
 
   .column-middle > img {
@@ -167,12 +273,6 @@ select {
 
   .content > div {
     display: flex;
-  }
-
-  .column {
-    display: flex;
-    flex-wrap: wrap;
-    flex-basis: 50%;
   }
 
   .column-container {
@@ -196,13 +296,62 @@ select {
     width: 30%;
   }
 
-  .content {
-    margin-top: 30%;
+  .gun > p {
+    font-size: 2rem;
+    margin-left: 7%;
+    margin-bottom: 6%;
   }
 
   .character > img {
     width: 90%;
     border: white 2px solid;
+  }
+
+  .abilities {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .gun > img {
+    width: 80%;
+    margin-left: 15%;
+    padding-bottom: 7%;
+  }
+
+  div.abilities > img {
+    width: 20%;
+    border: white solid 1px;
+  }
+
+  .ability-description {
+    margin-top: 4%;
+    border: white solid 2px;
+  }
+
+  .ability-description > .row {
+    display: flex;
+    justify-content: center;
+  }
+
+  .ability-description > .row > p {
+    margin-right: 3%;
+  }
+
+  .ability-description > .row > h4 {
+    margin-top: -0.2%;
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+
+  .character-column {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 50%;
+  }
+
+  .content {
+    margin-top: 30%;
   }
 
   #guns {
@@ -212,18 +361,13 @@ select {
 
   .gun {
     border: white 2px solid;
+    position: relative;
   }
 
-  .gun > img {
-    width: 80%;
-    margin-left: 15%;
-    padding-bottom: 7%;
-  }
-
-  .content > div > img {
+  div.role-wrapper > img {
     width: 7%;
     height: 7%;
-    margin-top: 10%;
+    margin-top: 8%;
     margin-left: 3%;
   }
 
@@ -238,16 +382,6 @@ select {
     width: 30%;
     height: 30%;
     margin-right: 3.3%;
-  }
-
-  p {
-    font-size: 1.2rem;
-  }
-
-  .gun > p {
-    font-size: 2rem;
-    margin-left: 7%;
-    margin-bottom: 6%;
   }
 
   .gun-column {
