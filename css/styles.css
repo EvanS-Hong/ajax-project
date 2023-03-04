@@ -127,6 +127,7 @@ select {
     left: 15%;
     background-color: #111;
     border: white solid 2px;
+    overflow: hidden;
   }
 
   .ability-description > .row {
@@ -336,12 +337,17 @@ select {
 
   .ability-description > .row > p {
     margin-right: 3%;
+    margin-left: 3%;
   }
 
   .ability-description > .row > h4 {
     margin-top: -0.2%;
     margin-left: 3%;
     margin-right: 3%;
+  }
+
+  .ability-container {
+    position: absolute;
   }
 
   .character-column {
