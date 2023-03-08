@@ -4,6 +4,7 @@ var desc = document.querySelector('.column-right');
 var weap = document.querySelector('.weapons');
 var container = document.querySelector('.container');
 var agentNames = [];
+var overlay = document.querySelector('.overlay');
 
 var xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://valorant-api.com/v1/agents?isPlayableCharacter=true');
@@ -566,6 +567,7 @@ function agentInfoSwap(event) {
         agentPortrait[i].classList.remove('hidden');
         agentDetails[i].classList.remove('hidden');
         agentInfo[i].classList.remove('hidden');
+        overlay.classList.remove('hidden');
       } else {
         agentPortrait[i].classList.add('hidden');
         agentDetails[i].classList.add('hidden');
@@ -583,6 +585,7 @@ function agentWindowClose() {
       var parent = (event.target.parentNode);
       var grandParent = parent.parentNode;
       grandParent.parentNode.classList.add('hidden');
+      overlay.classList.add('hidden');
     }
   }
 }
@@ -603,69 +606,44 @@ function weaponInfoViewSwap() {
 
 weap.addEventListener('click', weaponInfoViewSwap);
 
-function showAbility() {
+function toggleAbility() {
   var q = document.querySelectorAll('.ability-description');
   for (var z = 0; z < agentNames.length; z++) {
     if (event.target.classList.contains(agentNames[z]) && event.target.classList.contains('ability1')) {
       for (var i = 0; i < q.length; i++) {
-        if (q[i].classList.contains(agentNames[z]) && q[i].classList.contains('ability1')) {
+        if (q[i].classList.contains(agentNames[z]) && q[i].classList.contains('ability1') && q[i].classList.contains('hidden')) {
           q[i].classList.remove('hidden');
-        }
-      }
-    } else if (event.target.classList.contains(agentNames[z]) && event.target.classList.contains('ability2')) {
-      for (var m = 0; m < q.length; m++) {
-        if (q[m].classList.contains(agentNames[z]) && q[m].classList.contains('ability2')) {
-          q[m].classList.remove('hidden');
-        }
-      }
-    } else if (event.target.classList.contains(agentNames[z]) && event.target.classList.contains('grenade')) {
-      for (var n = 0; n < q.length; n++) {
-        if (q[n].classList.contains(agentNames[z]) && q[n].classList.contains('grenade')) {
-          q[n].classList.remove('hidden');
-        }
-      }
-    } else if (event.target.classList.contains(agentNames[z]) && event.target.classList.contains('ultimate')) {
-      for (var b = 0; b < q.length; b++) {
-        if (q[b].classList.contains(agentNames[z]) && q[b].classList.contains('ultimate')) {
-          q[b].classList.remove('hidden');
-        }
-      }
-    }
-  }
-}
-
-function hideAbility() {
-  var q = document.querySelectorAll('.ability-description');
-  for (var z = 0; z < agentNames.length; z++) {
-    if (event.target.classList.contains(agentNames[z]) && event.target.classList.contains('ability1')) {
-      for (var i = 0; i < q.length; i++) {
-        if (q[i].classList.contains(agentNames[z]) && q[i].classList.contains('ability1')) {
+        } else {
           q[i].classList.add('hidden');
         }
       }
     } else if (event.target.classList.contains(agentNames[z]) && event.target.classList.contains('ability2')) {
       for (var m = 0; m < q.length; m++) {
-        if (q[m].classList.contains(agentNames[z]) && q[m].classList.contains('ability2')) {
+        if (q[m].classList.contains(agentNames[z]) && q[m].classList.contains('ability2') && q[m].classList.contains('hidden')) {
+          q[m].classList.remove('hidden');
+        } else {
           q[m].classList.add('hidden');
         }
       }
     } else if (event.target.classList.contains(agentNames[z]) && event.target.classList.contains('grenade')) {
       for (var n = 0; n < q.length; n++) {
-        if (q[n].classList.contains(agentNames[z]) && q[n].classList.contains('grenade')) {
+        if (q[n].classList.contains(agentNames[z]) && q[n].classList.contains('grenade') && q[n].classList.contains('hidden')) {
+          q[n].classList.remove('hidden');
+        } else {
           q[n].classList.add('hidden');
         }
       }
     } else if (event.target.classList.contains(agentNames[z]) && event.target.classList.contains('ultimate')) {
       for (var b = 0; b < q.length; b++) {
-        if (q[b].classList.contains(agentNames[z]) && q[b].classList.contains('ultimate')) {
+        if (q[b].classList.contains(agentNames[z]) && q[b].classList.contains('ultimate') && q[b].classList.contains('hidden')) {
+          q[b].classList.remove('hidden');
+        } else {
           q[b].classList.add('hidden');
         }
       }
     }
   }
 }
-container.addEventListener('mouseover', showAbility);
-desc.addEventListener('mouseover', showAbility);
 
-container.addEventListener('mouseout', hideAbility);
-desc.addEventListener('mouseout', hideAbility);
+container.addEventListener('click', toggleAbility);
+desc.addEventListener('click', toggleAbility);

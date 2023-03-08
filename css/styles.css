@@ -27,7 +27,7 @@ select {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .selection-bar {
@@ -127,7 +127,7 @@ select {
     left: 15%;
     background-color: #111;
     border: white solid 2px;
-    overflow: hidden;
+    overflow: auto;
   }
 
   .ability-description > .row {
@@ -200,7 +200,6 @@ select {
   .gun {
     border: white solid 2px;
     padding-bottom: 3%;
-    position: relative;
   }
 
   .weapons {
@@ -232,6 +231,18 @@ select {
     margin-left: 5%;
     border: white solid 2px;
   }
+
+  .main-window > .row > .column > img {
+    width: 80%;
+  }
+
+  .main-window > .row > .column > p {
+    margin-bottom: -2%;
+  }
+
+  .main-window > .row > .column > p:first-child {
+    font-size: 1.6rem;
+  }
 }
 
 @media screen and (max-width: 1190px) {
@@ -243,6 +254,21 @@ select {
 @media screen and (min-width: 769px) {
   .character-info {
     display: flex;
+  }
+
+  .weapon-skins {
+    display: flex;
+    height: 90vh;
+    width: 90vw;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: fixed;
+    background-color: #111;
+    overflow: scroll;
+  }
+
+  .skin {
+    margin-top: 3%;
   }
 
   p {
@@ -367,7 +393,6 @@ select {
 
   .gun {
     border: white 2px solid;
-    position: relative;
   }
 
   div.role-wrapper > img {
