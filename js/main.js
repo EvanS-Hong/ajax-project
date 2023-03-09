@@ -5,6 +5,9 @@ var weap = document.querySelector('.weapons');
 var container = document.querySelector('.container');
 var agentNames = [];
 var overlay = document.querySelector('.overlay');
+var infoContainer = document.querySelector('.info-container');
+var weaponSkins = document.querySelector('.weapon-skins');
+var weaponNames = [];
 
 var xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://valorant-api.com/v1/agents?isPlayableCharacter=true');
@@ -371,7 +374,7 @@ xhr.addEventListener('load', function () {
     div4.appendChild(img6);
     div4.appendChild(img7);
     div4.appendChild(img8);
-    container.appendChild(div5);
+    infoContainer.appendChild(div5);
     div5.appendChild(div6);
     div6.appendChild(div7);
     div6.appendChild(div8);
@@ -391,7 +394,6 @@ xhr.addEventListener('load', function () {
     div12.appendChild(div14);
     div14.appendChild(img12);
     div14.appendChild(img13);
-
     div2.appendChild(aContainer1);
     aContainer1.appendChild(aDiv1);
     aDiv1.appendChild(aRow1);
@@ -462,6 +464,8 @@ xhr2.responseType = 'json';
 
 xhr2.addEventListener('load', function () {
   for (var i = 0; i < xhr2.response.data.length; i++) {
+    weaponNames.push(xhr2.response.data[i].displayName.toLowerCase());
+
     var div = document.createElement('div');
     div.className = 'gun';
     div.classList.add(xhr2.response.data[i].displayName.toLowerCase());
@@ -484,16 +488,20 @@ xhr2.addEventListener('load', function () {
 
     var h1 = document.createElement('h1');
     h1.textContent = xhr2.response.data[i].displayName;
+    h1.className = xhr2.response.data[i].displayName.toLowerCase();
 
     var p2 = document.createElement('p');
     if (xhr2.response.data[i].shopData !== null) {
       p2.textContent = 'Type: ' + xhr2.response.data[i].shopData.category;
+      p2.className = xhr2.response.data[i].displayName.toLowerCase();
     } else {
       p2.textContent = 'Type: ' + xhr2.response.data[i].displayName;
+      p2.className = xhr2.response.data[i].displayName.toLowerCase();
     }
 
     var p3 = document.createElement('p');
     p3.textContent = 'Skin Count = ' + xhr2.response.data[i].skins.length + '.';
+    p3.className = xhr2.response.data[i].displayName.toLowerCase();
 
     weap.appendChild(div);
     div.appendChild(div2);
@@ -502,6 +510,35 @@ xhr2.addEventListener('load', function () {
     div2.appendChild(h1);
     div2.appendChild(p2);
     div2.appendChild(p3);
+
+    var div3 = document.createElement('div');
+    div3.className = (xhr2.response.data[i].displayName.toLowerCase());
+    weaponSkins.appendChild(div3);
+
+    var div4 = document.createElement('p');
+    div4.className = 'skin';
+    div4.classList.add(xhr2.response.data[i].displayName.toLowerCase());
+    div4.classList.add('hidden');
+
+    weaponSkins.appendChild(div4);
+
+    for (var m = 0; m < xhr2.response.data[i].skins.length; m++) {
+      var img2 = document.createElement('img');
+      if (xhr2.response.data[i].skins[m].displayIcon !== null) {
+        img2.src = xhr2.response.data[i].skins[m].displayIcon;
+        img2.alt = xhr2.response.data[i].skins[m].displayName;
+        var p5 = document.createElement('p');
+        p5.textContent = xhr2.response.data[i].skins[m].displayName;
+      }
+
+      var div5 = document.createElement('div');
+      div5.className = 'skin-divider';
+
+      div4.appendChild(div5);
+      div5.appendChild(img2);
+      div5.appendChild(p5);
+
+    }
   }
 });
 xhr2.send();
@@ -647,3 +684,32 @@ function toggleAbility() {
 
 container.addEventListener('click', toggleAbility);
 desc.addEventListener('click', toggleAbility);
+
+function skinViewer() {
+  var skinList = document.querySelectorAll('.skin');
+  for (var i = 0; i < weaponNames.length; i++) {
+    if (event.target.classList.contains(weaponNames[i])) {
+      for (var m = 0; m < skinList.length; m++) {
+        if (skinList[m].classList.contains(weaponNames[i])) {
+          skinList[m].classList.remove('hidden');
+          weaponSkins.classList.remove('hidden');
+          overlay.classList.remove('hidden');
+        } else {
+          skinList[m].classList.add('hidden');
+        }
+      }
+    }
+  }
+}
+
+weap.addEventListener('dblclick', skinViewer);
+
+function skinViewerOff() {
+  if (event.target.className === 'exit') {
+    event.target.parentNode.classList.add('hidden');
+    weaponSkins.classList.add('hidden');
+    overlay.classList.add('hidden');
+  }
+}
+
+weaponSkins.addEventListener('click', skinViewerOff);
