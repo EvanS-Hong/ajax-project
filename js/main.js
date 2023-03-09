@@ -609,6 +609,7 @@ function agentInfoSwap(event) {
         agentPortrait[i].classList.add('hidden');
         agentDetails[i].classList.add('hidden');
         agentInfo[i].classList.add('hidden');
+        overlay.classList.add('hidden');
       }
     }
   }
