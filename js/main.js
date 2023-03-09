@@ -54,7 +54,7 @@ xhr.addEventListener('load', function () {
     div3.className = 'role-wrapper';
 
     var text2 = document.createElement('h2');
-    text2.textContent = '// ROLE';
+    text2.textContent = xhr.response.data[i].displayName.toUpperCase();
 
     var h1 = document.createElement('h1');
     h1.textContent = xhr.response.data[i].role.displayName.toUpperCase();

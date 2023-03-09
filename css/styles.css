@@ -387,12 +387,30 @@ select {
     margin-left: 20%;
   }
 
+  div.role-wrapper > h1 {
+    margin-bottom: -2%;
+  }
+
   .selector > .row > h1 {
     font-size: 1rem;
   }
 
   .content > div {
     display: flex;
+  }
+
+  .content > h2 {
+    font-size: 2rem;
+    margin-bottom: -1%;
+  }
+
+  div.role-wrapper > h2 {
+    margin-bottom: -2%;
+  }
+
+  .content > h2:first-child {
+    font-size: 2rem;
+    margin-bottom: -1%;
   }
 
   .column-container {
@@ -476,7 +494,7 @@ select {
   }
 
   .content {
-    margin-top: 30%;
+    margin-top: 40%;
   }
 
   #guns {
