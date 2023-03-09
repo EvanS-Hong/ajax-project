@@ -540,6 +540,10 @@ xhr2.addEventListener('load', function () {
 
     }
   }
+  var agentView = document.querySelector('.agentsView');
+  agentView.classList.remove('hidden');
+  var loader = document.querySelector('.loader');
+  loader.classList.add('hidden');
 });
 xhr2.send();
 
