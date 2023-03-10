@@ -37,18 +37,13 @@ xhr.addEventListener('load', function () {
     img2.src = xhr.response.data[i].fullPortraitV2;
     img2.alt = xhr.response.data[i].displayName.toLowerCase();
     img2.classList.add('picture');
-    if (i !== 0) {
-      img2.classList.add('hidden');
-    }
+    img2.classList.add('hidden');
+
     charImg.appendChild(img2);
 
     var div2 = document.createElement('div');
     div2.classList.add(xhr.response.data[i].displayName.toLowerCase());
-    if (i === 0) {
-      div2.classList.add('content');
-    } else {
-      div2.classList.add('content', 'hidden');
-    }
+    div2.classList.add('content', 'hidden');
 
     var div3 = document.createElement('div');
     div3.className = 'role-wrapper';
@@ -606,14 +601,18 @@ function agentInfoSwap(event) {
     for (var i = 0; i < agents.length; i++) {
       if (agents[i].classList.contains(event.target.getAttribute('alt'))) {
         agentPortrait[i].classList.remove('hidden');
+        agentPortrait[i].classList.add('animation-bottom');
         agentDetails[i].classList.remove('hidden');
+        agentDetails[i].classList.add('animation-right');
         agentInfo[i].classList.remove('hidden');
         overlay.classList.remove('hidden');
       } else {
         agentPortrait[i].classList.add('hidden');
         agentDetails[i].classList.add('hidden');
         agentInfo[i].classList.add('hidden');
+        agentDetails[i].classList.remove('animation-right');
         overlay.classList.add('hidden');
+        agentPortrait[i].classList.remove('animation-bottom');
       }
     }
   }

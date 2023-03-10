@@ -377,6 +377,34 @@ select {
     margin-bottom: 10%;
   }
 
+  @keyframes slideinfromright {
+    0% {
+      transform: translateX(100%);
+    }
+
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  .animation-right {
+    animation: 1s ease-in  slideinfromright;
+  }
+
+  @keyframes slideinfrombottom {
+    0% {
+      transform: translateY(100%);
+    }
+
+    100% {
+      transform: translateY(0%);
+    }
+  }
+
+  .animation-bottom {
+    animation: 1s ease-in  slideinfrombottom;
+  }
+
   .column-middle > img {
     width: 180%;
     margin-left: -33%;
@@ -507,11 +535,16 @@ select {
     position: relative;
   }
 
+  .role-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
   div.role-wrapper > img {
     width: 7%;
     height: 7%;
-    margin-top: 8%;
     margin-left: 3%;
+    margin-top: 8%;
   }
 
   .weapons > .sheriff > img,
