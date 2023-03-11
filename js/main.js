@@ -600,18 +600,18 @@ function agentInfoSwap(event) {
   if (event.target.tagName === 'IMG') {
     for (var i = 0; i < agents.length; i++) {
       if (agents[i].classList.contains(event.target.getAttribute('alt'))) {
+        overlay.classList.remove('hidden');
         agentPortrait[i].classList.remove('hidden');
         agentPortrait[i].classList.add('animation-bottom');
         agentDetails[i].classList.remove('hidden');
         agentDetails[i].classList.add('animation-right');
         agentInfo[i].classList.remove('hidden');
-        overlay.classList.remove('hidden');
+
       } else {
         agentPortrait[i].classList.add('hidden');
         agentDetails[i].classList.add('hidden');
         agentInfo[i].classList.add('hidden');
         agentDetails[i].classList.remove('animation-right');
-        overlay.classList.add('hidden');
         agentPortrait[i].classList.remove('animation-bottom');
       }
     }
