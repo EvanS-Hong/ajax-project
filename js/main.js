@@ -5,6 +5,7 @@ var weap = document.querySelector('.weapons');
 var container = document.querySelector('.container');
 var agentNames = [];
 var overlay = document.querySelector('.overlay');
+var overlay2 = document.querySelector('.overlay2');
 var infoContainer = document.querySelector('.info-container');
 var weaponSkins = document.querySelector('.weapon-skins');
 var weaponNames = [];
@@ -600,7 +601,7 @@ function agentInfoSwap(event) {
   if (event.target.tagName === 'IMG') {
     for (var i = 0; i < agents.length; i++) {
       if (agents[i].classList.contains(event.target.getAttribute('alt'))) {
-        overlay.classList.remove('hidden');
+        overlay2.classList.remove('hidden');
         agentPortrait[i].classList.remove('hidden');
         agentPortrait[i].classList.add('animation-bottom');
         agentDetails[i].classList.remove('hidden');
@@ -626,7 +627,7 @@ function agentWindowClose() {
       var parent = (event.target.parentNode);
       var grandParent = parent.parentNode;
       grandParent.parentNode.classList.add('hidden');
-      overlay.classList.add('hidden');
+      overlay2.classList.add('hidden');
     }
   }
 }
