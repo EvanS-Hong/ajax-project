@@ -2,11 +2,18 @@ body {
   background-color: #0e1820;
 }
 
+.loader {
+  position: absolute;
+  left: 35%;
+  top: 50%;
+}
+
 .overlay {
   width: 100%;
-  height: 200vh;
+  height: 680vh;
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
+  z-index: 2;
 }
 
 h1,
@@ -27,7 +34,7 @@ select {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .selection-bar {
@@ -69,6 +76,17 @@ select {
   width: 100%;
 }
 
+.skin-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: white solid 2px;
+}
+
+.exit {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
   .main-window {
     border: white solid 2px;
@@ -78,6 +96,64 @@ select {
     margin-left: 5%;
     margin-right: 3%;
     background-color: #111;
+    z-index: 3;
+  }
+
+  .weapon-skins {
+    display: flex;
+    height: 95vh;
+    width: 90vw;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: fixed;
+    background-color: #111;
+    overflow: scroll;
+    left: 4%;
+    z-index: 3;
+    border: grey solid 2px;
+  }
+
+  .overlay2 {
+    width: 100%;
+    height: 200vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 2;
+  }
+
+  .weapon-skins::-webkit-scrollbar {
+    width: 1em;
+  }
+
+  .weapon-skins::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .weapon-skins::-webkit-scrollbar-thumb {
+    background-color: blue;
+    outline: 2px solid red;
+  }
+
+  .weapon-skins p {
+    font-size: 1.2rem;
+  }
+
+  .weapon-skins > p {
+    position: absolute;
+    right: 1%;
+  }
+
+  .skin {
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: white solid 2px;
+    margin-right: 5%;
+  }
+
+  .skin-divider > img {
+    margin-top: 3%;
   }
 
   .exit {
@@ -127,7 +203,7 @@ select {
     left: 15%;
     background-color: #111;
     border: white solid 2px;
-    overflow: hidden;
+    overflow: auto;
   }
 
   .ability-description > .row {
@@ -232,6 +308,18 @@ select {
     margin-left: 5%;
     border: white solid 2px;
   }
+
+  .main-window > .row > .column > img {
+    width: 80%;
+  }
+
+  .main-window > .row > .column > p {
+    margin-bottom: -2%;
+  }
+
+  .main-window > .row > .column > p:first-child {
+    font-size: 1.6rem;
+  }
 }
 
 @media screen and (max-width: 1190px) {
@@ -245,8 +333,48 @@ select {
     display: flex;
   }
 
-  p {
+  .weapon-skins {
+    height: 90vh;
+    width: 90vw;
+    position: fixed;
+    background-color: #111;
+    overflow: scroll;
+    left: 5%;
+    z-index: 3;
+    border: white solid 2px;
+  }
+
+  .skin-divider > img {
+    margin-top: 3%;
+  }
+
+  .weapon-skins::-webkit-scrollbar {
+    width: 1em;
+  }
+
+  .weapon-skins::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .weapon-skins::-webkit-scrollbar-thumb {
+    background-color: blue;
+    outline: 2px solid red;
+  }
+
+  .weapon-skins p {
     font-size: 1.2rem;
+  }
+
+  .weapon-skins > p {
+    position: absolute;
+    right: 3%;
+  }
+
+  .skin {
+    margin-top: 3%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .main-window {
@@ -256,6 +384,34 @@ select {
   .agents {
     margin-left: 10%;
     margin-bottom: 10%;
+  }
+
+  @keyframes slideinfromright {
+    0% {
+      transform: translateX(100%);
+    }
+
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  .animation-right {
+    animation: 1s ease-in  slideinfromright;
+  }
+
+  @keyframes slideinfrombottom {
+    0% {
+      transform: translateY(100%);
+    }
+
+    100% {
+      transform: translateY(0%);
+    }
+  }
+
+  .animation-bottom {
+    animation: 1s ease-in  slideinfrombottom;
   }
 
   .column-middle > img {
@@ -268,12 +424,30 @@ select {
     margin-left: 20%;
   }
 
+  div.role-wrapper > h1 {
+    margin-bottom: -2%;
+  }
+
   .selector > .row > h1 {
     font-size: 1rem;
   }
 
   .content > div {
     display: flex;
+  }
+
+  .content > h2 {
+    font-size: 2rem;
+    margin-bottom: -1%;
+  }
+
+  div.role-wrapper > h2 {
+    margin-bottom: -2%;
+  }
+
+  .content > h2:first-child {
+    font-size: 2rem;
+    margin-bottom: -1%;
   }
 
   .column-container {
@@ -357,7 +531,7 @@ select {
   }
 
   .content {
-    margin-top: 30%;
+    margin-top: 40%;
   }
 
   #guns {
@@ -370,11 +544,16 @@ select {
     position: relative;
   }
 
+  .role-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
   div.role-wrapper > img {
     width: 7%;
     height: 7%;
-    margin-top: 8%;
     margin-left: 3%;
+    margin-top: 8%;
   }
 
   .weapons > .sheriff > img,
